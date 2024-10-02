@@ -1,0 +1,16 @@
+{
+  "name": "nodejs",
+  "version": "1.0.0",
+  "description": "Helpers and Code Snippets for the everyday web3 Developer >> EVM, BTC, The general works",
+  "main": "index.ts",
+  "repository": "https://github.com/inspi-writer001/web3-survivor",
+  "author": "inspi-writer001 <conservedinnovation@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "crypto": "^1.0.1",
+    "dotenv": "^16.4.5",
+    "ethers": "^6.13.3",
+    "web3": "^4.13.0"
+  }
+}
