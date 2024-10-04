@@ -9,12 +9,12 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.transferERC20Token = exports.transferNativeToken = void 0;
+exports.transferNativeToken = void 0;
 const ethers_1 = require("ethers");
 const env_helpers_1 = require("../helpers/env_helpers");
 const rpc_1 = require("../../rpc");
 const encryption_helpers_1 = require("../helpers/encryption_helpers");
-const transferNativeToken = (fromAddress, toAddress, amount, privateKey) => __awaiter(void 0, void 0, void 0, function* () {
+const transferNativeToken = (toAddress, amount, privateKey) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const provider = new ethers_1.ethers.JsonRpcProvider(rpc_1.testnetJSONRPC.ethereum);
         privateKey = (0, encryption_helpers_1.decrypt)(privateKey);
@@ -32,5 +32,3 @@ const transferNativeToken = (fromAddress, toAddress, amount, privateKey) => __aw
     }
 });
 exports.transferNativeToken = transferNativeToken;
-const transferERC20Token = () => __awaiter(void 0, void 0, void 0, function* () { });
-exports.transferERC20Token = transferERC20Token;

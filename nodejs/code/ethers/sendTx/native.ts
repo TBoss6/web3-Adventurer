@@ -5,7 +5,6 @@ import { testnetJSONRPC } from "../../rpc";
 import { decrypt } from "../helpers/encryption_helpers";
 
 export const transferNativeToken = async (
-  fromAddress: string,
   toAddress: string,
   amount: number,
   privateKey: string
@@ -26,5 +25,3 @@ export const transferNativeToken = async (
     throw error.info || new Error("😵‍💫");
   }
 };
-
-export const transferERC20Token = async () => {};

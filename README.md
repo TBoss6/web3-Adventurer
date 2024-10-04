@@ -21,9 +21,11 @@ Helpers and Code Snippets for the everyday web3 Developer 💪
 
 - createWallet - ✅Nodejs
 - importWallet - ✅Nodejs
-- queryBalance
+- queryBalanceNative - ✅Nodejs
+- queryBalanceErc20 - ✅Nodejs
 - fetchTxHistory
-- sendToken
+- sendTokenNative
+- sendTokenERC20
 - interactWithSmartContracts - Uniswap v2 Router
 
 # Nodejs 🔥🔥🔥🔥
