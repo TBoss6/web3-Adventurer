@@ -1,35 +1,66 @@
-# web3-survivor
+# Web3-Survivor 🦸💥
 
-Helpers and Code Snippets for the everyday web3 Developer 💪
+> Helpers and Code Snippets for the everyday Web3 Developer 💪  
+> EVM, BTC, The general works... you know the vibes!
 
-> EVM, BTC, The general works
-> One could say this is a comprehensive wallet app with extra bells and whistles.
+One could say this is a comprehensive wallet app with extra bells and whistles 🎉
 
 ## Gm Anon, Frens 🦸🦸🦸🦸
 
 ## <pre>Todos -- Help 😭</pre>
 
-> 😓 todo: Basic Introduction to the differences between EVM blockchains and whatnot
+> 😓 todo: Web3.js versions of Ethers.js code — Please Help Us!
 
-> 😓 todo: explain rpcs, basic onboarding stuff
+> 😓 todo: Write up a basic introduction to EVM chains for the newbies (you know the ones)
 
-> 😓 todo: links to standard documentations for the chains supported
+> 😓 todo: Add some handy RPC guides for onboarding
 
-> 😓 todo: direction on how to get to web and nodejs directories in this repository ...basically how to find your way around
+> 😓 todo: Toss in links to key documentation for each chain we support
 
-> ## Let's get cooking 🍳
+> 😓 todo: Add directions for finding your way around our repo (nodejs & web)
 
-- createWallet - ✅Nodejs
-- importWallet - ✅Nodejs
-- queryBalanceNative - ✅Nodejs
-- queryBalanceErc20 - ✅Nodejs
-- fetchTxHistory
-- sendTokenNative
-- sendTokenERC20
-- interactWithSmartContracts - Uniswap v2 Router
+> 😓 todo: Web app interactive versions of wallet functions in both web3.js and ethers.js
 
-# Nodejs 🔥🔥🔥🔥
+## Let's get cooking 🍳
 
-### You'll find the Javascript you need to run in the `/nodejs/dist` directory
+- createWallet - ✅Nodejs (ethers.js/web3.js WIP)
+- importWallet - ✅Nodejs (ethers.js/web3.js WIP)
+- queryBalanceNative - ✅Nodejs (ethers.js/web3.js WIP)
+- queryBalanceErc20 - ✅Nodejs (ethers.js/web3.js WIP)
+- fetchTxHistory - 🚧Help Needed
+- sendTokenNative - 🚧Help Needed
+- sendTokenERC20 - 🚧Help Needed
+- interactWithSmartContracts - Uniswap v2 Router 🚧Help Needed
 
-### The meaty Typescript is in the `/nodejs/code` directory
+## Nodejs 🔥🔥🔥🔥
+
+- **You’ll find the Javascript you need to run in** `/nodejs/dist`
+- **The juicy Typescript lives in** `/nodejs/code`
+
+## Web App Versions (Interactive) 🖥️
+
+We also need the **web app versions** of the wallet functionalities, including:
+
+- `createWallet`
+- `importWallet`
+- `queryBalanceNative`
+- `queryBalanceErc20`
+- `sendTokenNative`
+- `sendTokenERC20`
+
+This needs to be done for **both ethers.js and web3.js variants**! If you're comfortable with React and web3/ethers integrations, please help us build out the interactive versions 🚀!
+
+## What We Need Help With 👀
+
+### Web3.js Translations 📜
+
+We’ve got a solid Ethers.js implementation, but our Web3.js code needs some love!  
+We need help porting over key functionalities, including:
+
+- `createWallet`
+- `importWallet`
+- `sendTokenNative`
+- `sendTokenERC20`
+- `interactWithSmartContracts` (Uniswap V2)
+
+If you’re fluent in web3.js, hop in and lend us a hand 🤝. Every little bit helps!
