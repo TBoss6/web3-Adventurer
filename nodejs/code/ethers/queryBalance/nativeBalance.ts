@@ -3,7 +3,7 @@ import { testnetJSONRPC } from "../../rpc";
 import { log } from "../helpers/env_helpers";
 
 export const queryNativeBalance = async (walletAddress: string) => {
-  const provider = new ethers.JsonRpcProvider(testnetJSONRPC.ethereum);
+  const provider = new ethers.JsonRpcProvider(testnetJSONRPC.polygonZkEVM);
 
   // Fetch the balance in the smallest unit (wei for Ethereum)
   const balance = await provider.getBalance(walletAddress);
@@ -13,7 +13,7 @@ export const queryNativeBalance = async (walletAddress: string) => {
 };
 
 log("==== fetching wallet's native balance ===");
-queryNativeBalance("0xFC61d167c74aD1d29aFE457E7758B6C9970E6C28").then(
+queryNativeBalance("0xbfB3508311DF8bDa9D95C86B35AF855af37b8d94").then(
   (response) => {
     log(`Native balance: ${response} ETH`);
   }

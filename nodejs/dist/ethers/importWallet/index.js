@@ -11,7 +11,8 @@ const importWalletFromPrivateKey = (privateKey) => {
     // note that you can't access mnemonic since you imported using privateKey 🌝
     const walletDetails = {
         address,
-        privateKey: privateKey1
+        privateKey: privateKey1,
+        encryptedPrivateKey: (0, encryption_helpers_1.encrypt)(privateKey)
     };
     return walletDetails;
 };
@@ -25,7 +26,8 @@ const importWalletFromMnemonic = (mnemonic) => {
     const walletDetails = {
         address,
         privateKey,
-        mnemonic: seedPhrase
+        mnemonic: seedPhrase,
+        encryptedPrivateKey: (0, encryption_helpers_1.encrypt)(privateKey)
     };
     return walletDetails;
 };
@@ -43,7 +45,8 @@ const importWalletFromPrivateKeyBestPractice = (privateKey) => {
     // I should encrypt privateKey before returning... but that would defeat the revelation 🌝
     const walletDetails = {
         address,
-        privateKey: privateKey1
+        privateKey: privateKey1,
+        encryptedPrivateKey: privateKey
     };
     return walletDetails;
 };
@@ -58,7 +61,8 @@ const importWalletFromMnemonicBestPractice = (mnemonic) => {
     const walletDetails = {
         address,
         privateKey,
-        mnemonic: seedPhrase
+        mnemonic: seedPhrase,
+        encryptedPrivateKey: (0, encryption_helpers_1.encrypt)(privateKey)
     };
     return walletDetails;
 };
