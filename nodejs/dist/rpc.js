@@ -11,12 +11,14 @@ exports.jsonRPC = {
     litecoin: "https://explorer.litecoin.net",
     polygon: "https://rpc-mainnet.maticvigil.com",
     solana: "https://api.mainnet-beta.solana.com",
-    tron: "https://api.trongrid.io"
+    tron: "https://api.trongrid.io",
+    plygonZkEVM: "https://zkevm-rpc.com"
 };
 exports.testnetJSONRPC = {
     ethereum: "https://ethereum-sepolia.rpc.subquery.network/public	",
     avalanche: "https://avalanche-fuji-c-chain-rpc.publicnode.com	",
     bsc: "wss://bsc-testnet-rpc.publicnode.com",
     solana: "https://api.testnet.solana.com",
-    tron: "https://api.trongrid.io"
+    tron: "https://api.trongrid.io",
+    polygonZkEVM: "https://rpc.cardona.zkevm-rpc.com"
 };

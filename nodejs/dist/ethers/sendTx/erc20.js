@@ -18,7 +18,7 @@ const env_helpers_1 = require("../helpers/env_helpers");
 const USDT_TOKEN_ADDRESS = "0x7169D38820dfd117C3FA1f22a697dBA58d90BA06"; // a random testnet usdt token address
 // you could go over here and mint new testnet USDT tokens for yourself here using the _giveMeATokens (0xf5e3f1f7) method
 const sendERC20Token = (toAddress, erc20contractAddress, amount, privateKey) => __awaiter(void 0, void 0, void 0, function* () {
-    const provider = new ethers_1.ethers.JsonRpcProvider(rpc_1.testnetJSONRPC.ethereum);
+    const provider = new ethers_1.ethers.JsonRpcProvider(rpc_1.testnetJSONRPC.polygonZkEVM);
     const walletInstance = new ethers_1.ethers.Wallet(privateKey, provider);
     const tokenContract = new ethers_1.ethers.Contract(erc20contractAddress, erc20TokenABI_1.tokenABI, walletInstance);
     const tokenDecimals = yield tokenContract.decimals();

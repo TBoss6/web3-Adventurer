@@ -1,6 +1,6 @@
 import { ethers } from "ethers";
 import { log } from "../helpers/env_helpers";
-import { decrypt } from "../helpers/encryption_helpers";
+import { decrypt, encrypt } from "../helpers/encryption_helpers";
 
 export const importWalletFromPrivateKey = (privateKey: string) => {
   const wallet = new ethers.Wallet(privateKey);
@@ -11,7 +11,8 @@ export const importWalletFromPrivateKey = (privateKey: string) => {
 
   const walletDetails = {
     address,
-    privateKey: privateKey1
+    privateKey: privateKey1,
+    encryptedPrivateKey: encrypt(privateKey)
   };
 
   return walletDetails;
@@ -28,7 +29,8 @@ export const importWalletFromMnemonic = (mnemonic: string) => {
   const walletDetails = {
     address,
     privateKey,
-    mnemonic: seedPhrase
+    mnemonic: seedPhrase,
+    encryptedPrivateKey: encrypt(privateKey)
   };
   return walletDetails;
 };
@@ -61,7 +63,8 @@ export const importWalletFromPrivateKeyBestPractice = (privateKey: string) => {
 
   const walletDetails = {
     address,
-    privateKey: privateKey1
+    privateKey: privateKey1,
+    encryptedPrivateKey: privateKey
   };
 
   return walletDetails;
@@ -79,7 +82,8 @@ export const importWalletFromMnemonicBestPractice = (mnemonic: string) => {
   const walletDetails = {
     address,
     privateKey,
-    mnemonic: seedPhrase
+    mnemonic: seedPhrase,
+    encryptedPrivateKey: encrypt(privateKey)
   };
   return walletDetails;
 };

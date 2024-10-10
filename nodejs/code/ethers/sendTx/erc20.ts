@@ -13,7 +13,7 @@ export const sendERC20Token = async (
   amount: string,
   privateKey: string
 ) => {
-  const provider = new ethers.JsonRpcProvider(testnetJSONRPC.ethereum);
+  const provider = new ethers.JsonRpcProvider(testnetJSONRPC.polygonZkEVM);
 
   const walletInstance = new ethers.Wallet(privateKey, provider);
   const tokenContract = new ethers.Contract(

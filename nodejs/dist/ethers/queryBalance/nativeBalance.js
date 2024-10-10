@@ -14,7 +14,7 @@ const ethers_1 = require("ethers");
 const rpc_1 = require("../../rpc");
 const env_helpers_1 = require("../helpers/env_helpers");
 const queryNativeBalance = (walletAddress) => __awaiter(void 0, void 0, void 0, function* () {
-    const provider = new ethers_1.ethers.JsonRpcProvider(rpc_1.testnetJSONRPC.ethereum);
+    const provider = new ethers_1.ethers.JsonRpcProvider(rpc_1.testnetJSONRPC.polygonZkEVM);
     // Fetch the balance in the smallest unit (wei for Ethereum)
     const balance = yield provider.getBalance(walletAddress);
     const convertedBalance = ethers_1.ethers.formatEther(balance);
@@ -22,6 +22,6 @@ const queryNativeBalance = (walletAddress) => __awaiter(void 0, void 0, void 0, 
 });
 exports.queryNativeBalance = queryNativeBalance;
 (0, env_helpers_1.log)("==== fetching wallet's native balance ===");
-(0, exports.queryNativeBalance)("0xFC61d167c74aD1d29aFE457E7758B6C9970E6C28").then((response) => {
+(0, exports.queryNativeBalance)("0xbfB3508311DF8bDa9D95C86B35AF855af37b8d94").then((response) => {
     (0, env_helpers_1.log)(`Native balance: ${response} ETH`);
 });
