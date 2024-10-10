@@ -4,13 +4,14 @@ import { tokenABI } from "../erc20TokenABI";
 import { convertFromTokenUnits } from "../helpers/converters";
 import { log } from "../helpers/env_helpers";
 
-const USDT_TOKEN_ADDRESS = "0x7169D38820dfd117C3FA1f22a697dBA58d90BA06"; // a random testnet usdt token address
+const INSPIRATION_TOKEN_ADDRESS = "0xb943f76d0ABe6852FA34e7238F2b47Afbd610ca7"; // a random testnet  token address i created and deployed on Polygon zkevm
+// you could go over here and mint new testnet Inspi tokens for yourself here using the mint method, Ive tweaked it to nmake mint free for everone
 
 export const queryERC20TokenBalance = async (
   walletAddress: string,
   erc20contractAddress: string
 ) => {
-  const provider = new ethers.JsonRpcProvider(testnetJSONRPC.ethereum);
+  const provider = new ethers.JsonRpcProvider(testnetJSONRPC.polygonZkEVM);
 
   const tokenContract = new ethers.Contract(
     erc20contractAddress,
@@ -19,16 +20,26 @@ export const queryERC20TokenBalance = async (
   );
 
   const tokenDecimals = await tokenContract.decimals();
-  const amount = await tokenContract.balanceOf(walletAddress);
+  const batchRequest = await Promise.all([
+    tokenContract.balanceOf(walletAddress),
+    tokenContract.name()
+  ]);
+  const amount = batchRequest[0];
+  const tokenName = batchRequest[1];
   const convertedAmount = convertFromTokenUnits(amount, tokenDecimals);
 
-  return convertedAmount;
+  return { convertedAmount, tokenName };
 };
 
 log("==== fetching wallet's token balance ===");
 queryERC20TokenBalance(
-  "0xFC61d167c74aD1d29aFE457E7758B6C9970E6C28",
-  USDT_TOKEN_ADDRESS
-).then((response) => {
-  log(`${response}`);
-});
+  "0xbfB3508311DF8bDa9D95C86B35AF855af37b8d94",
+  INSPIRATION_TOKEN_ADDRESS
+)
+  .then((response) => {
+    log(`${response.convertedAmount} ${response.tokenName} Tokens`);
+  })
+  .catch((error) => {
+    log("error occured fetching erc20 balance");
+    log(error);
+  });

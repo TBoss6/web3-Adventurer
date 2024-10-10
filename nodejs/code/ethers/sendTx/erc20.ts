@@ -4,8 +4,8 @@ import { tokenABI } from "../erc20TokenABI";
 import { convertToTokenUnits } from "../helpers/converters";
 import { log } from "../helpers/env_helpers";
 
-const USDT_TOKEN_ADDRESS = "0x7169D38820dfd117C3FA1f22a697dBA58d90BA06"; // a random testnet usdt token address
-// you could go over here and mint new testnet USDT tokens for yourself here using the _giveMeATokens (0xf5e3f1f7) method
+const INSPIRATION_TOKEN_ADDRESS = "0xb943f76d0ABe6852FA34e7238F2b47Afbd610ca7"; // a random testnet  token address i created and deployed on Polygon zkevm
+// you could go over here and mint new testnet Inspi tokens for yourself here using the mint method, Ive tweaked it to nmake mint free for everone
 
 export const sendERC20Token = async (
   toAddress: string,
@@ -30,10 +30,15 @@ export const sendERC20Token = async (
 };
 
 sendERC20Token(
-  "0xbfB3508311DF8bDa9D95C86B35AF855af37b8d94",
-  USDT_TOKEN_ADDRESS,
+  "0xe4f7A744ebA25E8E5D9930eb5d4F6DD2a2268612",
+  INSPIRATION_TOKEN_ADDRESS,
   "0.2",
-  "0xa888c0e4315a0df2023868fa50ed9255c132e119095bd858eba12ee2a6d03f19"
-).then((response) => {
-  log(response);
-});
+  "0xe84091b88b3a4060ef7876d52b89718e40c036c688acb65bb9ff12b9c7f6f78c"
+)
+  .then((response) => {
+    log(response);
+  })
+  .catch((error) => {
+    log("error occured sending erc20 tx");
+    log(error);
+  });
