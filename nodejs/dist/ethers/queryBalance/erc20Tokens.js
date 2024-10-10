@@ -15,17 +15,28 @@ const rpc_1 = require("../../rpc");
 const erc20TokenABI_1 = require("../erc20TokenABI");
 const converters_1 = require("../helpers/converters");
 const env_helpers_1 = require("../helpers/env_helpers");
-const USDT_TOKEN_ADDRESS = "0x7169D38820dfd117C3FA1f22a697dBA58d90BA06"; // a random testnet usdt token address
+const INSPIRATION_TOKEN_ADDRESS = "0xb943f76d0ABe6852FA34e7238F2b47Afbd610ca7"; // a random testnet  token address i created and deployed on Polygon zkevm
+// you could go over here and mint new testnet Inspi tokens for yourself here using the mint method, Ive tweaked it to nmake mint free for everone
 const queryERC20TokenBalance = (walletAddress, erc20contractAddress) => __awaiter(void 0, void 0, void 0, function* () {
-    const provider = new ethers_1.ethers.JsonRpcProvider(rpc_1.testnetJSONRPC.ethereum);
+    const provider = new ethers_1.ethers.JsonRpcProvider(rpc_1.testnetJSONRPC.polygonZkEVM);
     const tokenContract = new ethers_1.ethers.Contract(erc20contractAddress, erc20TokenABI_1.tokenABI, provider);
     const tokenDecimals = yield tokenContract.decimals();
-    const amount = yield tokenContract.balanceOf(walletAddress);
+    const batchRequest = yield Promise.all([
+        tokenContract.balanceOf(walletAddress),
+        tokenContract.name()
+    ]);
+    const amount = batchRequest[0];
+    const tokenName = batchRequest[1];
     const convertedAmount = (0, converters_1.convertFromTokenUnits)(amount, tokenDecimals);
-    return convertedAmount;
+    return { convertedAmount, tokenName };
 });
 exports.queryERC20TokenBalance = queryERC20TokenBalance;
 (0, env_helpers_1.log)("==== fetching wallet's token balance ===");
-(0, exports.queryERC20TokenBalance)("0xFC61d167c74aD1d29aFE457E7758B6C9970E6C28", USDT_TOKEN_ADDRESS).then((response) => {
-    (0, env_helpers_1.log)(`${response}`);
+(0, exports.queryERC20TokenBalance)("0xbfB3508311DF8bDa9D95C86B35AF855af37b8d94", INSPIRATION_TOKEN_ADDRESS)
+    .then((response) => {
+    (0, env_helpers_1.log)(`${response.convertedAmount} ${response.tokenName} Tokens`);
+})
+    .catch((error) => {
+    (0, env_helpers_1.log)("error occured fetching erc20 balance");
+    (0, env_helpers_1.log)(error);
 });

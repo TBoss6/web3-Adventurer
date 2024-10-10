@@ -15,8 +15,8 @@ const rpc_1 = require("../../rpc");
 const erc20TokenABI_1 = require("../erc20TokenABI");
 const converters_1 = require("../helpers/converters");
 const env_helpers_1 = require("../helpers/env_helpers");
-const USDT_TOKEN_ADDRESS = "0x7169D38820dfd117C3FA1f22a697dBA58d90BA06"; // a random testnet usdt token address
-// you could go over here and mint new testnet USDT tokens for yourself here using the _giveMeATokens (0xf5e3f1f7) method
+const INSPIRATION_TOKEN_ADDRESS = "0xb943f76d0ABe6852FA34e7238F2b47Afbd610ca7"; // a random testnet  token address i created and deployed on Polygon zkevm
+// you could go over here and mint new testnet Inspi tokens for yourself here using the mint method, Ive tweaked it to nmake mint free for everone
 const sendERC20Token = (toAddress, erc20contractAddress, amount, privateKey) => __awaiter(void 0, void 0, void 0, function* () {
     const provider = new ethers_1.ethers.JsonRpcProvider(rpc_1.testnetJSONRPC.polygonZkEVM);
     const walletInstance = new ethers_1.ethers.Wallet(privateKey, provider);
@@ -27,6 +27,11 @@ const sendERC20Token = (toAddress, erc20contractAddress, amount, privateKey) => 
     return tx.hash;
 });
 exports.sendERC20Token = sendERC20Token;
-(0, exports.sendERC20Token)("0xbfB3508311DF8bDa9D95C86B35AF855af37b8d94", USDT_TOKEN_ADDRESS, "0.2", "0xa888c0e4315a0df2023868fa50ed9255c132e119095bd858eba12ee2a6d03f19").then((response) => {
+(0, exports.sendERC20Token)("0xe4f7A744ebA25E8E5D9930eb5d4F6DD2a2268612", INSPIRATION_TOKEN_ADDRESS, "0.2", "0xe84091b88b3a4060ef7876d52b89718e40c036c688acb65bb9ff12b9c7f6f78c")
+    .then((response) => {
     (0, env_helpers_1.log)(response);
+})
+    .catch((error) => {
+    (0, env_helpers_1.log)("error occured sending erc20 tx");
+    (0, env_helpers_1.log)(error);
 });
